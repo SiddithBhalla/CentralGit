@@ -1,0 +1,18 @@
+#%RAML 1.0
+title: humana-deloitte
+
+/emp:
+  get:
+    description: This method is to get the customer information
+    responses:
+      200:
+        body:
+          application/json:
+             example:
+               {
+                 "Emp-Name" : "Siddith Bhalla",
+                 "Emp-Age" : "23",
+                 "Join-Date": "9-NOV-2020",
+                 "Salary":"37000"
+               }
+            
