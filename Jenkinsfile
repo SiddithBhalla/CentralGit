@@ -1,6 +1,10 @@
 pipeline {
   agent any
   
+  environment {
+  anypoint_creds = ('anypoint_creds')
+  }
+  
   stages {
     stage('Build') {
       steps {
@@ -14,9 +18,22 @@ pipeline {
       }
     }
 
-     stage('Deployment') {
+     stage('DeploymentToDev') {
+      environment {
+      client_id = credentials('dev_client_id')
+      client_secret = credentials('dev_client_secret')
+      }
       steps {
-            bat 'mvn -U -V -e -B -DskipTests -Pdev deploy -DmuleDeploy'
+            bat 'mvn -U -V -e -B -DskipTests -Pdev deploy -DmuleDeploy -Dusername="%anypoint_creds_USR%" -Dpassword="%anypoint_creds_PSW%" -Ddev.anypoint.platform.client_id="%dev_client_id% -Ddev.anypoint.platform.client_secret="%dev_client_secret%"'
+      }  
+    }
+    stage('DeploymentToSandbox') {
+      environment {
+      client_id = credentials('sandbox_client_id')
+      client_secret = credentials('sandbox_client_secret')
+      }
+      steps {
+            bat 'mvn -U -V -e -B -DskipTests -PSandbox deploy -DmuleDeploy  -Dusername="%anypoint_creds_USR%" -Dpassword="%anypoint_creds_PSW%" -Dsandbox.anypoint.platform.client_id="%sandbox_client_id% -Dsandbox.anypoint.platform.client_secret="%sandbox_client_secret%"'
       }  
     }
   }
