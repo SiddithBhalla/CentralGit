@@ -47,7 +47,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>SANDBOX</id>
+			<id>Sandbox</id>
 			<build>
 				<plugins>
 					<plugin>
