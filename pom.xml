@@ -37,8 +37,8 @@
 								<properties>
 									<env>dev</env>
 									<api.id>18388720</api.id>
-									<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
-									<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
+									<anypoint.platform.client_id>${dev.anypoint.platform.client_id}</anypoint.platform.client_id>
+									<anypoint.platform.client_secret>${dev.anypoint.platform.client_secret}</anypoint.platform.client_secret>
 								</properties>
 							</cloudHubDeployment>
 						</configuration>
@@ -47,7 +47,7 @@
 			</build>
 		</profile>
 		<profile>
-			<id>SANDBOX</id>
+			<id>Sandbox</id>
 			<build>
 				<plugins>
 					<plugin>
@@ -65,8 +65,8 @@
 								<properties>
 									<env>SANDBOX</env>
 									<api.id>18388403</api.id>
-									<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
-									<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
+									<anypoint.platform.client_id>${sandbox.anypoint.platform.client_id}</anypoint.platform.client_id>
+									<anypoint.platform.client_secret>${sandbox.anypoint.platform.client_secret}</anypoint.platform.client_secret>
 								</properties>
 							</cloudHubDeployment>
 						</configuration>
