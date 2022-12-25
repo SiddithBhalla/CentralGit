@@ -20,11 +20,11 @@ pipeline {
 
      stage('DeploymentToDev') {
       environment {
-      dev_client_id = credentials('dev_client_id')
-      dev_client_secret = credentials('dev_client_secret')
+      CLIENT_ID = credentials('dev_client_id')
+      CLIENT_SECRET = credentials('dev_client_secret')
       }
       steps {
-            bat 'mvn -U -V -e -B -DskipTests -Pdev deploy -DmuleDeploy -Dusername="%ANYPOINT_USR%" -Dpassword="%ANYPOINT_PSW%" -Ddev.anypoint.platform.client_id="%dev_client_id% -Ddev.anypoint.platform.client_secret="%dev_client_secret%"'
+            bat 'mvn -U -V -e -B -DskipTests -Pdev deploy -DmuleDeploy -Dusername="%ANYPOINT_USR%" -Dpassword="%ANYPOINT_PSW%" -Ddev.anypoint.platform.client_id="%CLIENT_ID% -Ddev.anypoint.platform.client_secret="%CLIENT_SECRET%"'
       }  
     }
     stage('DeploymentToSandbox') {
