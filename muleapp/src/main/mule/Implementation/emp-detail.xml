@@ -16,7 +16,7 @@ output application/json
   "Emp-Name": "Siddith Bhalla",
   "Emp-Age": "23",
   "Join-Date": "9-NOV-2020",
-  Salary: "50000"
+  Salary: "48000"
 }]]></ee:set-payload>
             </ee:message>
         </ee:transform>
